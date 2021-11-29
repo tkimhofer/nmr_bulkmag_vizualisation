@@ -72,7 +72,7 @@ var geometry1 = new THREE.SphereGeometry(
   // thetaLength:Math.PI
 );
 
-var material1 = new THREE.MeshBasicMaterial({ color: 0xaabbcc});
+var material1 = new THREE.MeshBasicMaterial({ color: 0xdddddd});
 const mesh1 = new THREE.Mesh(geometry1, material1);
 mesh1.material.side = THREE.DoubleSide;
 scene.add(mesh1);
