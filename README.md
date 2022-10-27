@@ -1,8 +1,8 @@
-# Visualisation of a standard 1d NMR experiment
+# Visualisation of a 1D NMR experiment
 
-3D graphical approach to visualise the effects of a 90˚ radio frequency pulse on a net magentisation vector of proton nulcei in a magnetic field:
+Visualisation of the net magnetisation vector and FID generation after a 90˚ pulse.
 
 https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
 
 
-Coded with three.js and using WebGL.
+Coded with three.js.
