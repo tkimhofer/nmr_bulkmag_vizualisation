@@ -29,5 +29,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
 
 
 Refs:
+
 <b id="quad">1</b>: [Boltzmann distribution](https://magnetic-resonance.org/ch/02-03.html)
+
 <b id="quad">2</b>: [quadrature detection](https://en.wikipedia.org/wiki/In-phase_and_quadrature_components)
