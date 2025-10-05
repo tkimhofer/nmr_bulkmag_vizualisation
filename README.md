@@ -37,7 +37,7 @@ It is meant as an educational tool for students of spectroscopy or physics learn
 ### 3. Bulk magnetization in 3D space
 - Bulk magnetization vector `M` (white) is the sum of individual nuclear magnetic moments  
 - Longitudinal axis: `z` along `B0` (`Mz` component)
-- Transverse axes: `x` (red) and `y` (green), forming the `Mxy` plane.
+- Transverse axes: `x` (red) and `y` (green), forming the `Mxy` plane
 
 ### 4. RF excitation
 - exposed to radiofrequency (RF) pulse
