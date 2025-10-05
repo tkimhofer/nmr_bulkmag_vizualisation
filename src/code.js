@@ -50,7 +50,7 @@ const phi0   = 0;
 
 // --- magnetisation state ---
 let t = 0;
-let M = new THREE.Vector3(0, M0, 0);
+let M = new THREE.Vector3(0, 0, M0);
 
 // --- magnetisation arrow (use visible color) ---
 const arrow = new THREE.ArrowHelper(
