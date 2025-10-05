@@ -6,9 +6,25 @@ const container = document.querySelector('#scene-container');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(35, container.clientWidth / container.clientHeight, 0.1, 20000);
 camera.position.set(300, 140, 300);
+camera.lookAt(0, 0, 0);
+controls.target.set(0, 0, 0);
+controls.update();
+
+
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(devicePixelRatio);
-renderer.setSize(container.clientWidth, container.clientHeight);
+
+// renderer.setSize(container.clientWidth, container.clientHeight);
+function setRendererSize() {
+  const w = container.clientWidth  || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  renderer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+setRendererSize();
+new ResizeObserver(setRendererSize).observe(container);
+
 container.append(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 scene.add(new THREE.AmbientLight(0xffffff, 1));
