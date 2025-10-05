@@ -29,7 +29,7 @@ function setRendererSize() {
 }
 setRendererSize();
 
-camera.position.set(300, 300, 300);
+camera.position.set(400, 400, 400);
 camera.lookAt(0, 0, 0);
 container.appendChild(renderer.domElement);
 
