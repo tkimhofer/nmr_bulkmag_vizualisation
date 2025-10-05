@@ -13,7 +13,7 @@ It is meant as an educational tool for students of spectroscopy or physics learn
 
 ---
 
-## 🧠 Concept: NMR Spectroscopy in Essence
+## 🧠 NMR Spectroscopy in Essence
 
 ### 1. Sample placement
 - temperature & field stabilisation
