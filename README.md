@@ -5,31 +5,33 @@
 https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
 
 ### NMR spectroscopy in essence
-1. Sample is placed in main magnetic field
-   
+1. Sample is placed in main magnetic field 
+     - temperature & field stabilisation
+     - locking, shimming, tuning & matching, RF pulse calibration, etc.
+
 2. Nuclear spin alignment
-  - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (blue axis)
-  - parallel/antiparallel correspond orientations to low/high energy states, respectively.
-  - spin populations slightly favour lower energetic state
-  - population difference proportional to magnetic field strength <sup id="boltz">1</sup>
-  - population difference determines the detectable signal
+     - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (blue axis)
+     - parallel/antiparallel correspond orientations to low/high energy states, respectively
+     - spin populations slightly favour lower energetic state
+     - population difference proportional to magnetic field strength <sup id="boltz">1</sup>
+     - population difference determines the detectable signal
     
 3. Bulk magnetisation in 3d space,
-  - bulk magnetisation vector `M` (black vector) represents sum of individual nuclear magnetic moments
-  - longitudinal axis, `z`,  along `B0` (`Mz` component)
-  - transverse axes forming xy-plane: `x` (green) and `y` (orange)
+     - bulk magnetisation vector `M` (black vector) represents sum of individual nuclear magnetic moments
+     - longitudinal axis, `z`,  along `B0` (`Mz` component)
+     - transverse axes forming xy-plane (`Mxy` component) : `x` (green) and `y` (orange), 
     
 4. RF excitation
-  - sample is excited by radiofrequency (RF) pulse
-  - RF is calibrated to rotate `M` by 90 degrees into xy-plane
-  - `M` starts precessing around `z`-axis at Larmor frequency (`omega0` in code)
+     - sample is excited by radiofrequency (RF) pulse
+     - RF is calibrated to rotate `M` by 90 degrees into xy-plane
+     - `M` starts precessing around `z`-axis at Larmor frequency (`omega0` in code)
     
 5. Relaxation and Signal detection
    
    A. Relaxation effects
      - magnitude of `Mxy` declines while `Mz` recovers, due to two relaxation effects:
-     - `T2`: mutual magnetic interactions between spins - loss of phase coherence (spin-spin relax.)
-     - `T1`: interactions with lattice/environment (longitudinal/z axis, spin-lattice relax.)
+     - `T2`: mutual magnetic interactions between spins → loss of phase coherence (spin-spin relax.)
+     - `T1`: interactions with lattice/environment → recovery along z-axis (spin-lattice relax.)
      - `T2` decay leads to loss of transverse coherence; `T1` governs recovery of longitudinal magnetisation
     
    B. Signal detection
@@ -46,10 +48,12 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
         - imaginary part contains the dispersive component
         
 6. Recovery
-  - `Mz` magnitude grows until equilibrium is re-established
+     - `Mz` magnitude grows until equilibrium is re-established
     
 7. Repetition 
-  - Once equilibrium is reached, data acquisition cycle can start again
+     - Once equilibrium is reached, data acquisition cycle can start again
+     - the number of repetitions determines the degree of signal averaging (Bruker parameter `NS`: *Number of Scans*) 
+     - the spectral signal-to-noise ratio (S/N) increases proportionally to the square root of the number of scans
 
 
 ## Refs:
