@@ -62,7 +62,6 @@ const arrow = new THREE.ArrowHelper(
   6
 );
 scene.add(arrow);
-// console.log('after arrow');
 
 function cone(color, pos, rot) {
   const geo = new THREE.ConeGeometry(5, 20, 32);
