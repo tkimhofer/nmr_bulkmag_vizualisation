@@ -10,7 +10,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
      - locking, shimming, tuning & matching, RF pulse calibration, etc.
 
 2. Nuclear spin alignment
-     - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (blue axis in [visualisation](https://tkimhofer.github.io/nmr_bulkmag_vizualisation/))
+     - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (vertical/blue axis in [visualisation](https://tkimhofer.github.io/nmr_bulkmag_vizualisation/))
      - parallel/antiparallel correspond orientations to low/high energy states, respectively
      - spin populations slightly favour lower energetic state
      - population difference proportional to magnetic field strength <sup id="boltz">1</sup>
@@ -19,7 +19,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
 3. Bulk magnetisation in 3d space,
      - bulk magnetisation vector `M` (black vector) represents sum of individual nuclear magnetic moments
      - longitudinal axis, `z`,  along `B0` (`Mz` component)
-     - transverse axes forming xy-plane (`Mxy` component) : `x` (green) and `y` (orange), 
+     - transverse axes forming xy-plane (`Mxy` component) : `x` (red) and `y` (green), 
     
 4. RF excitation
      - sample is excited by radiofrequency (RF) pulse
