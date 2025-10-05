@@ -62,8 +62,9 @@ const arrow = new THREE.ArrowHelper(
   6
 );
 scene.add(arrow);
+console.log('=== after arrow ===');
 
-// --- detector cones: place at the same Y as traces (Y=80) ---
+=== before cone def ===
 function cone(color, pos, rot) {
   const geo = new THREE.ConeGeometry(5, 20, 32);
   const mat = new THREE.MeshBasicMaterial({ color });
