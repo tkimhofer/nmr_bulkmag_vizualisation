@@ -142,7 +142,7 @@ function stepPhysics(dt) {
   const ez = 1 - Math.exp(-t / T1);
 
   const Mx = M0 * ex * Math.cos(omega0 * t + phi0);
-  const My = M0 * ex * Math.sin(omega0 * t + phi0);
+  const My = - M0 * ex * Math.sin(omega0 * t + phi0);
   const Mz = M0 * ez;
 
   M.set(Mx, My, Mz);
