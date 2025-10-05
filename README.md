@@ -1,8 +1,10 @@
 # Visualisation of a 1D NMR experiment
 
+### Visualisation
+
 https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
 
-### Visualisation of free induction decay
+### NMR spectroscopy in essence
 - sample is placed in magnet, NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (corresponding to low & high energy state, resp.)
   - nuclear spin populations slightly favour lower energetic state
   - spin population difference approx. proportional to magnetic field strength <sup id="boltz">1</sup>
@@ -23,12 +25,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
     - Imaginary (sine) component represents absorptive response (y-channel): `s_I(t)`
 
 
-
-
-### Coded with three.js.
-
-
-Refs:
+## Refs:
 
 <b id="quad">1</b>: [Boltzmann distribution](https://magnetic-resonance.org/ch/02-03.html)
 
