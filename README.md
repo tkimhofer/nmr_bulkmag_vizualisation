@@ -2,7 +2,7 @@
 
 An interactive JavaScript visualisation of the bulk magnetisation vector and detected signals during a standard 1D NMR (Nuclear Magnetic Resonance) experiment. 
 
-The animation is governed by the [Bloch equations](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Spectroscopy/Magnetic_Resonance_Spectroscopies/Nuclear_Magnetic_Resonance/NMR_-_Theory/Bloch_Equations), which describe how nuclear magnetisation evolves in time under the influence of the magnetic field and T1, T2 relaxation processes.
+The animation is governed by the Bloch equations <sup id="bloch">1</sup>, which describe how nuclear magnetisation evolves in time under the influence of the magnetic field and T1, T2 relaxation processes.
 
 🔗 **Live demo:** [tkimhofer.github.io/nmr_visualisation](https://tkimhofer.github.io/nmr_visualisation/)
 
@@ -23,7 +23,7 @@ It is meant as an educational tool for students of spectroscopy or physics learn
  - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (vertical/blue axis in [visualisation](https://tkimhofer.github.io/nmr_visualisation/))
  - parallel/antiparallel orientations orrespond to low/high energy states, respectively
  - slight excess population in the low-energy state → net bulk magnetization (`M`)
- - population difference proportional to magnetic field strength <sup id="boltz">1</sup> → determines detectable signal strength
+ - population difference proportional to magnetic field strength <sup id="boltz">2</sup> → determines detectable signal strength
 
 ### 3. Bulk magnetization in 3D space
 - Bulk magnetization vector `M` (white) is the sum of individual nuclear magnetic moments  
@@ -45,7 +45,7 @@ It is meant as an educational tool for students of spectroscopy or physics learn
 
 **B. Signal detection**
 - The precessing `Mxy` induces voltage in two orthogonal receiver coils (90° phase difference)
-- Detectors / recever channels shown as orange and green cones <sup id="quad">2</sup>
+- Detectors / recever channels shown as orange and green cones <sup id="quad">3</sup>
 - Resulting time-domain signals are drawn as orange and green traces
 
 **C. Complex signal representation**
@@ -76,7 +76,8 @@ It is meant as an educational tool for students of spectroscopy or physics learn
 
 
 ## Refs:
+<b id="bloch">1</b>:[Bloch equations] (https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Spectroscopy/Magnetic_Resonance_Spectroscopies/Nuclear_Magnetic_Resonance/NMR_-_Theory/Bloch_Equations)
 
-<b id="quad">1</b>: [Boltzmann distribution](https://magnetic-resonance.org/ch/02-03.html)
+<b id="quad">2</b>: [Boltzmann distribution](https://magnetic-resonance.org/ch/02-03.html)
 
-<b id="quad">2</b>: [quadrature detection](https://en.wikipedia.org/wiki/In-phase_and_quadrature_components)
+<b id="quad">3</b>: [quadrature detection](https://en.wikipedia.org/wiki/In-phase_and_quadrature_components)
