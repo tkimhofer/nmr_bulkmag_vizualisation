@@ -107,13 +107,13 @@ function pushSample(xVal, yVal) {
   const tx = -maxSamples * step * 0.5 + writeIdx * step;
 
   // --- Sx trace (red): time along +X, amplitude along +Y, at constant Z ---
-  xPositions[3*writeIdx + 0] = 320 + tx;    // X = time
+  xPositions[3*writeIdx + 0] = 340 + tx;    // X = time
   xPositions[3*writeIdx + 1] = scale * xVal; // Y = amplitude (Sx = Mx)
   xPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
   // --- Sy trace (blue): time along +Y, amplitude along +X, same Z plane ---
   yPositions[3*writeIdx + 0] = scale * yVal; // X = amplitude (Sy = My)
-  yPositions[3*writeIdx + 1] = 320 + tx;     // Y = time
+  yPositions[3*writeIdx + 1] = 330 + tx;     // Y = time
   yPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
   writeIdx = (writeIdx + 1) % maxSamples;
@@ -153,7 +153,7 @@ pushSample(M.x, M.y);
 renderer.render(scene, camera);
 
 
-const tHold = 0.02; # holidng xy plane tilt to make shift explicit
+const tHold = 0.02; // holidng xy plane tilt to make shift explicit
 function stepPhysics(dt) {
   t += dt;
 
