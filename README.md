@@ -10,7 +10,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
      - locking, shimming, tuning & matching, RF pulse calibration, etc.
 
 2. Nuclear spin alignment
-     - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (blue axis)
+     - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (blue axis in [visualisation](https://tkimhofer.github.io/nmr_bulkmag_vizualisation/))
      - parallel/antiparallel correspond orientations to low/high energy states, respectively
      - spin populations slightly favour lower energetic state
      - population difference proportional to magnetic field strength <sup id="boltz">1</sup>
