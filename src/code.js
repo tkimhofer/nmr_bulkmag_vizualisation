@@ -61,7 +61,7 @@ const arrow = new THREE.ArrowHelper(arrowDir, new THREE.Vector3(0,0,0), 100, 0x3
 scene.add(arrow);
 
 // detector cones (just visuals)
-unction cone(color, pos, rot) {
+function cone(color, pos, rot) {
   const c = new THREE.Mesh(
     new THREE.ConeGeometry(5, 20, 32),
     new THREE.MeshBasicMaterial({ color })
