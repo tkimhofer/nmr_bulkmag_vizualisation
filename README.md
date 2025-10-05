@@ -26,7 +26,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
      - RF is calibrated to rotate `M` by 90 degrees into xy-plane
      - `M` starts precessing around `z`-axis at Larmor frequency (`omega0` in code)
     
-5. Relaxation and Signal detection
+5. Signal evolution and detection
    
    A. Relaxation effects
      - magnitude of `Mxy` declines while `Mz` recovers, due to two relaxation effects:
