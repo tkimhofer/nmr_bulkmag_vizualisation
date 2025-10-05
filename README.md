@@ -7,7 +7,7 @@ The animation is governed by the [Bloch equations]([https://en.wikipedia.org/wik
 🔗 **Live demo:** [tkimhofer.github.io/nmr_visualisation](https://tkimhofer.github.io/nmr_visualisation/)
 
 ## 🎯 Overview
-This project illustrates the fundamental physical processes in a standard 1D 90° NMR experiment — from nuclear spin alignment to RF excitation, signal precession, relaxation, and data detection — using an animated 3D scene rendered with [Three.js](https://threejs.org/).
+This project illustrates the fundamental physical processes in a standard 90° NMR experiment — from nuclear spin alignment to RF excitation, signal precession, relaxation, and data detection — using an animated 3D scene rendered with [Three.js](https://threejs.org/).
 
 It is meant as an educational tool for students of spectroscopy or physics learning about spin dynamics and NMR signal formation.
 
