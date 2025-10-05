@@ -1,8 +1,92 @@
-# Visualisation of a 1D NMR experiment
+# 🧲 Visualization of a 1D NMR Experiment
 
-### Visualisation
+An interactive **Three.js** visualization of the bulk magnetization vector and detected signals during a simple 1D **NMR (Nuclear Magnetic Resonance)** experiment.
 
-https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
+🔗 **Live demo:** [tkimhofer.github.io/nmr_bulkmag_vizualisation](https://tkimhofer.github.io/nmr_bulkmag_vizualisation/)
+
+## 🎯 Overview
+This project illustrates the fundamental physical processes in a 1D NMR experiment — from nuclear spin alignment to RF excitation, signal precession, relaxation, and data detection — using an animated 3D scene rendered with [Three.js](https://threejs.org/).
+
+It is meant as an educational tool for students of spectroscopy or physics learning about spin dynamics and NMR signal formation.
+
+---
+
+## 🧠 Concept: NMR Spectroscopy in Essence
+
+### 1. Sample placement
+- The sample is placed in the main magnetic field **B₀**.  
+- Temperature and field stabilization, shimming, tuning & matching, and RF calibration are performed.
+
+### 2. Nuclear spin alignment
+- NMR-sensitive nuclei align **parallel** or **antiparallel** to **B₀** (vertical/blue axis in the [visualization](https://tkimhofer.github.io/nmr_bulkmag_vizualisation/)).
+- The parallel/antiparallel orientations correspond to **low** and **high** energy states, respectively.
+- Slight excess population in the low-energy state → net **bulk magnetization (M₀)**.
+- Population difference ∝ magnetic field strength<sup id="boltz">1</sup> → determines detectable signal strength.
+
+### 3. Bulk magnetization in 3D
+- **Bulk magnetization vector** `M` (white) is the sum of individual nuclear magnetic moments.  
+- Longitudinal axis: `z` along **B₀** (`Mz` component).  
+- Transverse axes: `x` (red) and `y` (green), forming the **Mxy** plane.
+
+### 4. RF excitation
+- An RF pulse rotates `M` by 90° into the xy-plane.  
+- `M` begins to precess around the z-axis at the **Larmor frequency** `ω₀`.
+
+### 5. Signal evolution and detection
+
+**A. Relaxation effects**
+- Magnitude of `Mxy` decays while `Mz` recovers.  
+- **T₂**: spin–spin relaxation → loss of phase coherence.  
+- **T₁**: spin–lattice relaxation → recovery along z-axis.  
+- Typically, `T₂ ≤ T₁`.
+
+**B. Signal detection**
+- The precessing `Mxy` induces voltage in two orthogonal receiver coils (90° phase difference).  
+- Detectors shown as **orange and green cones**<sup id="quad">2</sup>.  
+- Resulting time-domain signals are drawn as **orange and green traces**.
+
+**C. Complex signal representation**
+- The detected signal is a complex-valued function:
+
+  \[
+  s(t) = s_{Re}(t) + i \, s_{Im}(t)
+  \]
+
+- The real (`s_Re`) and imaginary (`s_Im`) parts correspond to the two receiver channels.  
+- After Fourier transformation:
+  - Real → absorptive line shape.  
+  - Imaginary → dispersive component.
+
+### 6. Recovery
+- Longitudinal magnetization `Mz` grows until equilibrium is re-established.
+
+### 7. Repetition
+- Once equilibrium is reached, the acquisition cycle repeats.  
+- The number of repetitions (**Bruker parameter** `NS`: *Number of Scans*) determines signal averaging.  
+- Signal-to-noise ratio (S/N) increases as:
+
+  \[
+  \text{S/N} \propto \sqrt{NS}
+  \]
+
+---
+
+## 🧩 Implementation
+
+| Component | Description |
+|------------|-------------|
+| **Framework** | [Three.js](https://threejs.org/) for 3D rendering |
+| **Language** | JavaScript (ES modules) |
+| **Controls** | OrbitControls for camera interaction |
+| **Core file** | `src/code.js` — animation and physics of magnetization |
+| **HTML/CSS** | `index.html`, `styles/main.css` |
+| **Deployment** | Static GitHub Pages |
+
+**Key features**
+- Animated bulk magnetization vector with 3D axes.  
+- Real-time exponential `T₁` / `T₂` relaxation simulation.  
+- Orthogonal detectors and complex signal traces.  
+- Interactive orbit, zoom, and reset button.
 
 ### NMR spectroscopy in essence
 1. Sample is placed in main magnetic field 
