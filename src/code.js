@@ -49,7 +49,7 @@ const T1     = 1.8;
 const T2     = 0.35;
 const omega0 = 2 * Math.PI * 30 / 10; // 30 Hz for visualization ... lowering hz for slower movement
 const phi0   = 0;
-const zPlane = 80; // <- detectors + traces live in horizontal XY at this height
+const zPlane = 0; // traces live in horizontal XY at this height
 
 // --- magnetisation state ---
 let t = 0;
@@ -107,7 +107,7 @@ function pushSample(xVal, yVal) {
   const tx = -maxSamples * step * 0.5 + writeIdx * step;
 
   // --- Sx trace (red): time along +X, amplitude along +Y, at constant Z ---
-  xPositions[3*writeIdx + 0] = 110 + tx;    // X = time
+  xPositions[3*writeIdx + 0] = 510 + tx;    // X = time
   xPositions[3*writeIdx + 1] = scale * xVal; // Y = amplitude (Sx = Mx)
   xPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
