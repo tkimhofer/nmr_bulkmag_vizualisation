@@ -47,7 +47,7 @@ scene.add(new THREE.AxesHelper(120));
 const M0     = 1.0;
 const T1     = 1.8;
 const T2     = 0.35;
-const omega0 = 2 * Math.PI * 30; // 30 Hz for visualization ... lowering hz for slower movement
+const omega0 = 2 * Math.PI * 30/10; // 30 Hz for visualization ... lowering hz for slower movement
 const phi0   = 0;
 const zPlane = 0; // traces live in horizontal XY at this height
 
