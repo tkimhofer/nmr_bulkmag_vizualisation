@@ -57,6 +57,7 @@ let M = new THREE.Vector3(0, 0, M0);
 let clock = new THREE.Clock();
 const dtFixed = 1 / 240;
 let accumulator = 0;
+const timeScale = 0.5; 
 
 // --- arrow ---
 const arrow = new THREE.ArrowHelper(
@@ -181,7 +182,7 @@ function stepPhysics(dt) {
 // --- animation loop ---
 function animate() {
   requestAnimationFrame(animate);
-  accumulator += clock.getDelta();
+  accumulator += clock.getDelta() *  timeScale;;
   while (accumulator >= dtFixed) {
     stepPhysics(dtFixed);
     accumulator -= dtFixed;
