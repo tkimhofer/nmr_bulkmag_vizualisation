@@ -75,8 +75,8 @@ function cone(color, pos, rot) {
   if (rot) c.rotation.setFromVector3(rot);
   scene.add(c);
 }
-cone(0xff0000, new THREE.Vector3(100,   0, 0), new THREE.Vector3(0, 0, -Math.PI/2)); // +X (red), rotate -90° about Z
-cone(0x0088ff, new THREE.Vector3(  0, 100, 0), new THREE.Vector3(0, 0, 0));  
+cone(0xff0000, new THREE.Vector3(150,   0, 0), new THREE.Vector3(0, 0, -Math.PI/2)); // +X (red), rotate -90° about Z
+cone(0x0088ff, new THREE.Vector3(  0, 130, 0), new THREE.Vector3(0, 0, 0));  
 
 
 // --- rolling traces for Sx and Sy ---
@@ -102,12 +102,12 @@ scene.add(xLine, yLine);
 
 let writeIdx = 0;
 function pushSample(xVal, yVal) {
-  const scale = 120;   // amplitude scaling
+  const scale = 100;   // amplitude scaling
   const step  = 0.5;   // time step per sample
   const tx = -maxSamples * step * 0.5 + writeIdx * step;
 
   // --- Sx trace (red): time along +X, amplitude along +Y, at constant Z ---
-  xPositions[3*writeIdx + 0] = 220 + tx;    // X = time
+  xPositions[3*writeIdx + 0] = 320 + tx;    // X = time
   xPositions[3*writeIdx + 1] = scale * xVal; // Y = amplitude (Sx = Mx)
   xPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
