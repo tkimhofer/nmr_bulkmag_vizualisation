@@ -156,7 +156,7 @@ pushSample(M.x, M.y);
 renderer.render(scene, camera);
 
 // --- physics step ---
-const tHold = 1.0; // keep Mz=0 for a moment to illustrate T2-only then T1
+const tHold = 0.20; // keep Mz=0 for a moment to illustrate T2-only then T1
 function stepPhysics(dt) {
   t += dt;
 
