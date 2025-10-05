@@ -153,7 +153,7 @@ pushSample(M.x, M.y);
 renderer.render(scene, camera);
 
 
-const tHold = 0.02; // holidng xy plane tilt to make shift explicit
+const tHold = 1.0; // holidng xy plane tilt to make shift explicit
 function stepPhysics(dt) {
   t += dt;
 
