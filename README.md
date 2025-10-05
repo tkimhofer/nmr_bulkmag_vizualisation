@@ -5,21 +5,21 @@
 https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
 
 ### NMR spectroscopy in essence
-1. Sample is placed in main magnetic field
+1.0 Sample is placed in main magnetic field
    
-2. Nuclear spin alignment
+2.0 Nuclear spin alignment
   - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (blue axis)
   - parallel/antiparallel correspond orientations to low/high energy states, respectively.
   - spin populations slightly favour lower energetic state
   - population difference proportional to magnetic field strength <sup id="boltz">1</sup>
   - population difference determines the detectable signal
     
-3. Bulk magnetisation in 3d space,
+3.0 Bulk magnetisation in 3d space,
   - bulk magnetisation vector `M` (black vector) represents sum of individual nuclear magnetic moments
   - longitudinal axis, `z`,  along `B0` (`Mz` component)
   - transverse axes forming xy-plane: `x` (green) and `y` (orange)
     
-4. RF excitation
+4.0 RF excitation
   - sample is excited by radiofrequency (RF) pulse
   - RF is calibrated to rotate `M` by 90 degrees into xy-plane
   - `M` starts precessing around `z`-axis at Larmor frequency (`omega0` in code)
@@ -43,10 +43,10 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
         - real part of the spectrum yields the absorptive line shape
         - imaginary part contains the dispersive component
         
-6. Recovery
+6.0 Recovery
   - `Mz` magnitude grows until equilibrium is re-established
     
-7. Repetition 
+7.0 Repetition 
   - Once equilibrium is reached, data acquisition cycle can start again
 
 
