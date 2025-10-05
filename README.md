@@ -80,4 +80,4 @@ It is meant as an educational tool for students of spectroscopy or physics learn
 
 <b id="quad">2</b>: [Boltzmann distribution](https://magnetic-resonance.org/ch/02-03.html)
 
-<b id="quad">3</b>: [quadrature detection](https://en.wikipedia.org/wiki/In-phase_and_quadrature_components)
+<b id="quad">3</b>: [Quadrature detection](https://en.wikipedia.org/wiki/In-phase_and_quadrature_components)
