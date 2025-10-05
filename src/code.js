@@ -67,7 +67,8 @@ const arrow = new THREE.ArrowHelper(
   new THREE.Vector3(0, 0, 1),
   new THREE.Vector3(0, 0, 0),
   100,
-  0x333333,
+  // 0x333333,
+  0xffffff,
   12,
   6
 );
