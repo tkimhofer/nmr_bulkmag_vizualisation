@@ -1,6 +1,8 @@
 # 🧲 Visualization of a 1D NMR Experiment
 
-An interactive **Three.js** visualization of the bulk magnetization vector and detected signals during a simple 1D **NMR (Nuclear Magnetic Resonance)** experiment.
+An interactive JavaScript visualisation of the bulk magnetisation vector and detected signals during a simple 1D NMR (Nuclear Magnetic Resonance) experiment. 
+
+The animation is governed by the [Bloch equations](https://en.wikipedia.org/wiki/Bloch_equations), which describe how nuclear magnetisation evolves in time under the influence of the magnetic field and T1, T2 relaxation processes.
 
 🔗 **Live demo:** [tkimhofer.github.io/nmr_bulkmag_vizualisation](https://tkimhofer.github.io/nmr_bulkmag_vizualisation/)
 
