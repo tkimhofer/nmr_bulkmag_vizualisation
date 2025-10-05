@@ -1,213 +1,137 @@
-// import \* as THREE from '/Users/TKimhofer/Downloads/three.js-master/build/three.module.js';
+import * as THREE from "https://cdn.skypack.dev/three@0.152.2";
+import { OrbitControls } from "https://cdn.skypack.dev/three@0.152.2/examples/jsm/controls/OrbitControls.js";
 
-// import {
-//     BoxBufferGeometry,
-//     Color,
-//     Mesh,
-//     MeshBasicMaterial,
-//     PerspectiveCamera,
-//     Scene,
-//     WebGLRenderer,
-//   } from "https://cdn.skypack.dev/three@0.132.2";
-  
-import * as THREE from "https://cdn.skypack.dev/three@0.132.2";
-import { OrbitControls } from 'https://cdn.skypack.dev/three@0.131.1/examples/jsm/controls/OrbitControls'
-//import { GUI } from 'three/examples/jsm/libs/dat.gui.module'
-//import { GUI } from './jsm/libs/dat.gui.module.js';
-  
-//   from '/Users/TKimhofer/Downloads/three.js-master/build/three.js';
-//   from "https://cdn.skypack.dev/three@0.132.2"; 
-
-// Get a reference to the container element that will hold our scene
-// const container = document.querySelector('#scene-container');
-
-scene = new THREE.Scene();
-var container, scene, camera, renderer;
-var SCREEN_WIDTH = window.innerWidth,
-  SCREEN_HEIGHT = window.innerHeight;
-var VIEW_ANGLE = 35,
-  ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT,
-  NEAR = 0.1,
-  FAR = 20000;
-
-camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-camera.position.set(300, 100, 300);
-camera.lookAt(scene.position);
-scene.add(camera);
-
-renderer = new THREE.WebGLRenderer({antialias: true });
-renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-const controls = new OrbitControls(camera, renderer.domElement)
-
-// document.querySelector('#scene-container');
-container =  document.querySelector('#scene-container');
-// container.appendChild(renderer.domElement);
-let light = new THREE.AmbientLight(0xFFFFFF); // soft white light
-scene.add(light);
-
-let axes = new THREE.AxesHelper(1000).setColors(0xFF0000, 0x00FF00, 0x0000FF) ;
-scene.add(axes);  
-
-// create a geometry
-var dir = new THREE.Vector3(0, 0, 1);
-let pos = new THREE.Vector3(0, 1, 0);
-pos.applyAxisAngle(dir.normalize(), 0)
-// pos.applyQuaternion(0)
-var arrow1 = new THREE.ArrowHelper(dir, pos, 100, 0x000000, 40);
-scene.add(arrow1);
-let phi_add=0.2
-
-var geometry1 = new THREE.SphereGeometry(
-  100, 100, 100,
-  ((Math.PI*2)/360) * 225, 
-  Math.PI, // full horizontal circle
-  0,
-  Math.PI
-  //radius: 10
-  // widthSegments:100, 
-  // heightSegments:100, 
-  // phiStart:Math.PI*2, 
-  // phiLength:-Math.PI*1, 
-  // thetaStart:5.3, 
-  // thetaLength:Math.PI
-);
-
-var material1 = new THREE.MeshBasicMaterial({ color: 0xdddddd});
-const mesh1 = new THREE.Mesh(geometry1, material1);
-mesh1.material.side = THREE.DoubleSide;
-scene.add(mesh1);
-
-
-// next, set the renderer to the same size as our container element
+// --- basic scene ---
+const container = document.querySelector('#scene-container');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(35, container.clientWidth / container.clientHeight, 0.1, 20000);
+camera.position.set(300, 140, 300);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(devicePixelRatio);
 renderer.setSize(container.clientWidth, container.clientHeight);
-renderer.setPixelRatio(window.devicePixelRatio);
 container.append(renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
+scene.add(new THREE.AmbientLight(0xffffff, 1));
 
-// place detector cones
-const det_x_geo = new THREE.ConeGeometry( 5, 20, 32 );
-const det_x_mat = new THREE.MeshBasicMaterial( {color: 0xFF0000} );
-const det_x = new THREE.Mesh( det_x_geo, det_x_mat );
-scene.add( det_x );
-det_x.position.set(100, 0, 0);
-det_x.rotateZ(-Math.PI/2)
+const axes = new THREE.AxesHelper(120);
+scene.add(axes);
 
-const det_y_geo = new THREE.ConeGeometry( 5, 20, 32 );
-const det_y_mat = new THREE.MeshBasicMaterial( {color: 0x00aaFF} );
-const det_y = new THREE.Mesh( det_y_geo, det_y_mat );
-scene.add( det_y );
-det_y.position.set(0, 0, 100);
-det_y.rotateX(Math.PI/2)
+// --- constants (NMR model) ---
+const M0     = 1.0;
+const T1     = 1.8;   // seconds (example)
+const T2     = 0.35;  // seconds (example); use shorter for T2* if desired
+const omega0 = 2 * Math.PI * 30; // rad/s (example 30 Hz precession)
+const phi0   = 0;     // initial phase in XY after pulse
+const pulseDur = 0.015; // 15 ms "hard" 90° pulse (we’ll just jump state for simplicity)
 
-// place detector signal
-var ball_x_mat = new THREE.MeshBasicMaterial({'color': 0xff0000});
-var sp_x = new THREE.Mesh(new THREE.SphereGeometry(1, 100, 50), ball_x_mat);
-sp_x.position.set(110, 0, 0);
-scene.add(sp_x);
+// --- magnetisation state ---
+let t = 0;
+let pulsed = false;
+let M = new THREE.Vector3(0, 0, M0); // start at equilibrium along +Z
 
-var ball_y_mat = new THREE.MeshBasicMaterial({'color': 0x0000ff});
-var sp_y = new THREE.Mesh(new THREE.SphereGeometry(1, 100, 50), ball_y_mat);
-sp_y.position.set(0, 0, 110);
-scene.add(sp_y);
+// --- visuals: magnetisation arrow ---
+const arrowDir = new THREE.Vector3(0, 0, 1);
+const arrow = new THREE.ArrowHelper(arrowDir, new THREE.Vector3(0,0,0), 100, 0x111111, 10, 5);
+scene.add(arrow);
 
-const lxmaterial = new THREE.LineBasicMaterial({color: 0xFF0000});
+// detector cones (just visuals)
+function cone(color, pos, rot) {
+  const c = new THREE.Mesh(new THREE.ConeGeometry(5, 20, 32), new THREE.MeshBasicMaterial({ color }));
+  c.position.copy(pos);
+  if (rot) c.rotation.setFromVector3(rot);
+  scene.add(c);
+}
+cone(0xff0000, new THREE.Vector3(100,0,0), new THREE.Vector3(0,0,-Math.PI/2)); // X
+cone(0x0088ff, new THREE.Vector3(0,0,100), new THREE.Vector3(Math.PI/2,0,0));   // Y
 
-const lxpoints = [];
-lxpoints.push( new THREE.Vector3( 110, 0, 0) );
-//lpoints.push( new THREE.Vector3( 0, 100, 0 ) );
-const lxgeometry = new THREE.BufferGeometry().setFromPoints( lxpoints );
-//const xline = new THREE.Line( lxgeometry, lxmaterial );
+// --- rolling traces for Sx and Sy ---
+const maxSamples = 800;
+const xGeom = new THREE.BufferGeometry();
+const yGeom = new THREE.BufferGeometry();
+const xPositions = new Float32Array(maxSamples * 3);
+const yPositions = new Float32Array(maxSamples * 3);
+xGeom.setAttribute('position', new THREE.BufferAttribute(xPositions, 3));
+yGeom.setAttribute('position', new THREE.BufferAttribute(yPositions, 3));
+const xLine = new THREE.Line(xGeom, new THREE.LineBasicMaterial({ color: 0xff0000 }));
+const yLine = new THREE.Line(yGeom, new THREE.LineBasicMaterial({ color: 0x0000ff }));
+scene.add(xLine, yLine);
 
-const lymaterial = new THREE.LineBasicMaterial({color: 0x0000FF});
-const lypoints = [];
-lypoints.push( new THREE.Vector3( 0, 0, 110) );
-const lygeometry = new THREE.BufferGeometry().setFromPoints( lypoints );
-//const yline = new THREE.Line( lygeometry, lymaterial );
+let writeIdx = 0;
+function pushSample(xVal, yVal) {
+  // plot along +X (time) for Sx, along +Z for Sy; scale for visibility
+  const scale = 120;      // amplitude scaling
+  const step  = 0.5;      // pixel step per sample
+  const tx = -maxSamples * step * 0.5 + writeIdx * step;
 
-var center = new THREE.Vector2(0,0, 0);
-var lastPosition = new THREE.Vector3(10, 0, 0); // Store starting position.
-var frame = 0;
-var maxFrame = 300;
+  // Sx trace in XZ plane at Y=80 (red)
+  xPositions[3*writeIdx + 0] = 110 + tx;
+  xPositions[3*writeIdx + 1] = 80;
+  xPositions[3*writeIdx + 2] = scale * xVal;
 
-var zdir=0
-var zstep =1000
-let radius_xy=100
-let phi_rad_xy = 0
+  // Sy trace in XY plane at Z=110 (blue)
+  yPositions[3*writeIdx + 0] = scale * yVal;
+  yPositions[3*writeIdx + 1] = 80;
+  yPositions[3*writeIdx + 2] = 110 + tx;
 
-var time=1
-var off_flip=10
+  writeIdx = (writeIdx + 1) % maxSamples;
+  xGeom.attributes.position.needsUpdate = true;
+  yGeom.attributes.position.needsUpdate = true;
+}
 
-const x_points = [];
+// --- helpers ---
+const clock = new THREE.Clock();
+const dtFixed = 1/240; // physics step
+let accumulator = 0;
+
+// optional: simple “apply 90° pulse” shortcut (tip M from +Z to +X)
+function apply90PulseX() {
+  // After a perfect 90° pulse on y, M rotates from +Z to +X.
+  M.set(M0, 0, 0); // start FID in the transverse plane
+  pulsed = true;
+  t = 0;
+}
+
+apply90PulseX();
+
+// --- main loop ---
+function stepPhysics(dt) {
+  t += dt;
+
+  // Free precession + relaxation closed form (post-90° FID)
+  const ex = Math.exp(-t / T2);
+  const ez = 1 - Math.exp(-t / T1);
+
+  const Mx = M0 * ex * Math.cos(omega0 * t + phi0);
+  const My = M0 * ex * Math.sin(omega0 * t + phi0);
+  const Mz = M0 * ez; // recovers to +Z
+
+  // update vector and arrow
+  M.set(Mx, My, Mz);
+  const dir = new THREE.Vector3(Mx, My, Mz).normalize();
+  arrow.setDirection(dir);
+  arrow.setLength(100 * Math.min(1, Math.sqrt(Mx*Mx + My*My + Mz*Mz) / M0));
+
+  // sensor signals (projections)
+  const Sx = Mx; // detector along X
+  const Sy = My; // detector along Y (90° phase)
+  pushSample(Sx, Sy);
+}
 
 function animate() {
   requestAnimationFrame(animate);
-
-  if(time <=off_flip ){
-    var dir = new THREE.Vector3(0.4, 1*(1-(time/off_flip)), 0);
-    arrow1.setDirection(dir);
+  accumulator += clock.getDelta();
+  while (accumulator >= dtFixed) {
+    stepPhysics(dtFixed);
+    accumulator -= dtFixed;
   }
-  time += 1;
-  if (time > off_flip+20){
-    let time1=time-(off_flip+20)
-    zdir += (zstep/Math.PI);
-  if(zdir >  Math.PI * 2) zdir = 0;
-  if(time >  Math.PI * 2) zdir = 0;
-
-  var per = zdir ;
-  var rad = zdir;
-
-  // var x_pos = Math.cos(zdir) * Math.exp(time/20);
-  // var y_pos = Math.sin(zdir) * Math.exp(time/20);
-  
-  var theta=0.4*(Math.PI)
-  var omega = 50/1000
-  var M =0.2
-  // bloch equations 
-  var x_pos = M  * Math.cos(omega*time1); //Math.sin(theta) * 
-  var y_pos = M  * Math.sin(omega*time1); //* Math.cos(theta)
-  var z_pos = M * time1/30 * Math.cos(theta);
-
-  //if (z_pos > 1) time =1
-  //var x_pos = M * Math.sin(theta) * Math.cos(omega*time);
-
-  // var y = rad
-
-  // can change the direction
-  var dir = new THREE.Vector3(x_pos, z_pos, y_pos);
-  arrow1.setDirection(dir);
-
-  let x_pos_comp= x_pos * (1-(z_pos))
-  let y_pos_comp= y_pos * (1-(z_pos))
-  if (z_pos > 1) x_pos_comp =0
-  if (z_pos > 1) y_pos_comp =0
-  //console.log(z_pos)
-
-  var sp_x_pos = new THREE.Vector3( 110+(time-(off_flip+20))/10, 200*(x_pos_comp), 0);
-  sp_x.position.copy(sp_x_pos);
-  lxpoints.push( new THREE.Vector3( 110+(time-(off_flip+20))/10, 200*(x_pos_comp), 0 ) );
-  const lxgeometry = new THREE.BufferGeometry().setFromPoints( lxpoints );
-  const xline = new THREE.Line( lxgeometry, lxmaterial );
-  scene.add( xline );
-
-  let vy = new THREE.Vector3(0 , 200*(y_pos_comp), (110+(time-(off_flip+20))/10))
-  lypoints.push( vy);
-  const lygeometry = new THREE.BufferGeometry().setFromPoints( lypoints );
-  const yline = new THREE.Line( lygeometry, lymaterial );
-  scene.add( yline );
-
-  var sp_y_pos = new THREE.Vector3(0, 200*(y_pos_comp), (110+(time-(off_flip+20))/10));
-  sp_y.position.copy(sp_y_pos);
-  sp_y.rotateY(3);
-
-  // frame += 1;
-  // frame %= maxFrame;
-  }
+  controls.update();
   renderer.render(scene, camera);
 }
-
-// const gui = new GUI();
-
-// gui.add( effectController, 'focalLength', 1, 135, 0.01 ).onChange( matChanger );
-// gui.add( effectController, 'fstop', 1.8, 22, 0.01 ).onChange( matChanger );
-// gui.add( effectController, 'focalDepth', 0.1, 100, 0.001 ).onChange( matChanger );
-// gui.add( effectController, 'showFocus', true ).onChange( matChanger );
 animate();
+
+// --- resize ---
+window.addEventListener('resize', () => {
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.clientWidth, container.clientHeight);
+});
