@@ -28,8 +28,8 @@ h1 {
 
 #restart-btn {
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
+  top: 1rem;
+  left: 1rem;
   z-index: 1000;
   padding: 0.5rem 1rem;
   background: #333;
