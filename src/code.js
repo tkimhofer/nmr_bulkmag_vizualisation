@@ -5,10 +5,7 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.152.2/examples/js
 const container = document.querySelector('#scene-container');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(35, container.clientWidth / container.clientHeight, 0.1, 20000);
-camera.position.set(300, 140, 300);
-camera.lookAt(0, 0, 0);
-controls.target.set(0, 0, 0);
-controls.update();
+
 
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -23,10 +20,17 @@ function setRendererSize() {
   camera.updateProjectionMatrix();
 }
 setRendererSize();
-new ResizeObserver(setRendererSize).observe(container);
+camera.position.set(300, 140, 300);
+camera.lookAt(0, 0, 0);
 
 container.append(renderer.domElement);
+
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0, 0);
+controls.update();
+
+new ResizeObserver(setRendererSize).observe(container);
+
 scene.add(new THREE.AmbientLight(0xffffff, 1));
 
 const axes = new THREE.AxesHelper(120);
