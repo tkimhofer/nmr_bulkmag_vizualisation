@@ -17,7 +17,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
      - population difference determines the detectable signal
     
 3. Bulk magnetisation in 3d space,
-     - bulk magnetisation vector `M` (black vector) represents sum of individual nuclear magnetic moments
+     - bulk magnetisation vector `M` (white vector) represents sum of individual nuclear magnetic moments
      - longitudinal axis, `z`,  along `B0` (`Mz` component)
      - transverse axes forming xy-plane (`Mxy` component) : `x` (red) and `y` (green), 
     
