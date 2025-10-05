@@ -7,6 +7,8 @@ const container = document.querySelector('#scene-container');
 if (!container) throw new Error('#scene-container not found');
 
 const scene = new THREE.Scene();
+
+THREE.Object3D.DEFAULT_UP.set(0, 0, 1); // Now Z is 'up'
 const camera = new THREE.PerspectiveCamera(
   35,
   container.clientWidth / container.clientHeight,
@@ -45,7 +47,7 @@ scene.add(new THREE.AxesHelper(120));
 const M0     = 1.0;
 const T1     = 1.8;
 const T2     = 0.35;
-const omega0 = 2 * Math.PI * 30 / 6; // 30 Hz for visualization ... lowering hz for slower movement
+const omega0 = 2 * Math.PI * 30 / 10; // 30 Hz for visualization ... lowering hz for slower movement
 const phi0   = 0;
 const zPlane = 80; // <- detectors + traces live in horizontal XY at this height
 
