@@ -4,7 +4,7 @@ An interactive JavaScript visualisation of the bulk magnetisation vector and det
 
 The animation is governed by the [Bloch equations]([https://en.wikipedia.org/wiki/Bloch_equations](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Spectroscopy/Magnetic_Resonance_Spectroscopies/Nuclear_Magnetic_Resonance/NMR_-_Theory/Bloch_Equations)), which describe how nuclear magnetisation evolves in time under the influence of the magnetic field and T1, T2 relaxation processes.
 
-🔗 **Live demo:** [tkimhofer.github.io/nmr_bulkmag_vizualisation](https://tkimhofer.github.io/nmr_visualisation/)
+🔗 **Live demo:** [tkimhofer.github.io/nmr_visualisation](https://tkimhofer.github.io/nmr_visualisation/)
 
 ## 🎯 Overview
 This project illustrates the fundamental physical processes in a 1D NMR experiment — from nuclear spin alignment to RF excitation, signal precession, relaxation, and data detection — using an animated 3D scene rendered with [Three.js](https://threejs.org/).
