@@ -84,8 +84,8 @@ function cone(color, pos, rot) {
   if (rot) c.rotation.setFromVector3(rot);
   scene.add(c);
 }
-cone(0xff0000, new THREE.Vector3(130,   0, 0), new THREE.Vector3(0, 0, -Math.PI/2)); // +X
-cone(0x0088ff, new THREE.Vector3(  0, 130, 0), new THREE.Vector3(0, 0, 0));           // +Y
+cone(0xffa500, new THREE.Vector3(130,   0, 0), new THREE.Vector3(0, 0, -Math.PI/2)); // +X
+cone(0x00ff00, new THREE.Vector3(  0, 130, 0), new THREE.Vector3(0, 0, 0));           // +Y
 
 // --- rolling traces for Sx and Sy ---
 const maxSamples = 800;
@@ -101,8 +101,8 @@ yGeom.attributes.position.setUsage(THREE.DynamicDrawUsage);
 xGeom.setDrawRange(0, 1);
 yGeom.setDrawRange(0, 1);
 
-const xLine = new THREE.Line(xGeom, new THREE.LineBasicMaterial({ color: 0xff0000 }));
-const yLine = new THREE.Line(yGeom, new THREE.LineBasicMaterial({ color: 0x0000ff }));
+const xLine = new THREE.Line(xGeom, new THREE.LineBasicMaterial({ color: 0xffa500 }));
+const yLine = new THREE.Line(yGeom, new THREE.LineBasicMaterial({ color: 0x00ff00 }));
 xLine.frustumCulled = false;
 yLine.frustumCulled = false;
 scene.add(xLine, yLine);
