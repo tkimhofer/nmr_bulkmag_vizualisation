@@ -75,7 +75,7 @@ function cone(color, pos, rot) {
   if (rot) c.rotation.setFromVector3(rot);
   scene.add(c);
 }
-cone(0xff0000, new THREE.Vector3(150,   0, 0), new THREE.Vector3(0, 0, -Math.PI/2)); // +X (red), rotate -90° about Z
+cone(0xff0000, new THREE.Vector3(130,   0, 0), new THREE.Vector3(0, 0, -Math.PI/2)); // +X (red), rotate -90° about Z
 cone(0x0088ff, new THREE.Vector3(  0, 130, 0), new THREE.Vector3(0, 0, 0));  
 
 
@@ -113,7 +113,7 @@ function pushSample(xVal, yVal) {
 
   // --- Sy trace (blue): time along +Y, amplitude along +X, same Z plane ---
   yPositions[3*writeIdx + 0] = scale * yVal; // X = amplitude (Sy = My)
-  yPositions[3*writeIdx + 1] = 220 + tx;     // Y = time
+  yPositions[3*writeIdx + 1] = 320 + tx;     // Y = time
   yPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
   writeIdx = (writeIdx + 1) % maxSamples;
