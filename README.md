@@ -24,7 +24,8 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
   - RF is calibrated to rotate `M` by 90 degrees into xy-plane
   - `M` starts precessing around `z`-axis at Larmor frequency (`omega0` in code)
     
-5. Relaxation and Signal detection 
+5. Relaxation and Signal detection
+   
    A. Relaxation effects
      - magnitude of `Mxy` declines while `Mz` recovers, due to two relaxation effects:
      - `T2`: mutual magnetic interactions between spins - loss of phase coherence (spin-spin relax.)
@@ -44,7 +45,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
         - real part of the spectrum yields the absorptive line shape
         - imaginary part contains the dispersive component
         
-6 Recovery
+6. Recovery
   - `Mz` magnitude grows until equilibrium is re-established
     
 7. Repetition 
