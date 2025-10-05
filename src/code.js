@@ -18,7 +18,7 @@ const camera = new THREE.PerspectiveCamera(
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio || 1);
-renderer.setClearColor(0xf7f7f7, 1);
+renderer.setClearColor(0x202833, 1);
 
 function setRendererSize() {
   const w = container.clientWidth || window.innerWidth;
@@ -40,6 +40,9 @@ new ResizeObserver(setRendererSize).observe(container);
 
 scene.add(new THREE.AmbientLight(0xffffff, 1));
 scene.add(new THREE.AxesHelper(120));
+
+const hemiLight = new THREE.HemisphereLight(0xaaaaaa, 0x222222, 0.8);
+scene.add(hemiLight);
 
 // --- constants (NMR model) ---
 const M0     = 1.0;
