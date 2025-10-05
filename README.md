@@ -19,5 +19,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
 
 ### Coded with three.js.
 
+
 Refs:
+
 <b id="quad">1</b>: [quadrature detection](https://en.wikipedia.org/wiki/In-phase_and_quadrature_components)
