@@ -128,7 +128,6 @@ const clock = new THREE.Clock();
 const dtFixed = 1 / 240;
 let accumulator = 0;
 
-// 90° pulse: tip from +Z to +X to start FID
 (function apply90PulseX() {
   M.set(M0, 0, 0);
   t = 0;
@@ -136,9 +135,12 @@ let accumulator = 0;
 
 function stepPhysics(dt) {
   t += dt;
+
+  // calc spin-lattice and spin-spin relaxation for t
   const ex = Math.exp(-t / T2);
   const ez = 1 - Math.exp(-t / T1);
 
+  // calc 
   const Mx = M0 * ex * Math.cos(omega0 * t + phi0);
   const My = - M0 * ex * Math.sin(omega0 * t + phi0);
   const Mz = M0 * ez;
@@ -149,6 +151,7 @@ function stepPhysics(dt) {
   arrow.setDirection(dir);
   arrow.setLength(100 * Math.min(1, Math.sqrt(Mx * Mx + My * My + Mz * Mz) / M0));
 
+  // sensors read transverse signals
   pushSample(Mx, My);
 }
 
