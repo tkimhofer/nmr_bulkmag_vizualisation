@@ -11,6 +11,15 @@ This project illustrates the fundamental physical processes in a standard 90° N
 
 It is meant as an educational tool for students of spectroscopy or physics learning about spin dynamics and NMR signal formation.
 
+
+## 🧩 Implementation
+**Key features**
+- Animated bulk magnetization vector with 3D axes.
+- Real-time exponential `T1` / `T2` relaxation simulation
+- Orthogonal detectors and complex signal traces
+- Interactive orbit, zoom, and reset button (see upper left)
+
+
 ---
 
 ## 🧠 NMR Spectroscopy in Essence
@@ -64,15 +73,6 @@ It is meant as an educational tool for students of spectroscopy or physics learn
 - Signal-to-noise ratio (S/N) increases proportionally to the square root of the number of scans
 
 ---
-
-## 🧩 Implementation
-
-
-**Key features**
-- Animated bulk magnetization vector with 3D axes.
-- Real-time exponential `T1` / `T2` relaxation simulation
-- Orthogonal detectors and complex signal traces
-- Interactive orbit, zoom, and reset button
 
 
 ## Refs:
