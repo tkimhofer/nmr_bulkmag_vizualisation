@@ -107,13 +107,13 @@ function pushSample(xVal, yVal) {
   const tx = -maxSamples * step * 0.5 + writeIdx * step;
 
   // --- Sx trace (red): time along +X, amplitude along +Y, at constant Z ---
-  xPositions[3*writeIdx + 0] = 510 + tx;    // X = time
+  xPositions[3*writeIdx + 0] = 220 + tx;    // X = time
   xPositions[3*writeIdx + 1] = scale * xVal; // Y = amplitude (Sx = Mx)
   xPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
   // --- Sy trace (blue): time along +Y, amplitude along +X, same Z plane ---
   yPositions[3*writeIdx + 0] = scale * yVal; // X = amplitude (Sy = My)
-  yPositions[3*writeIdx + 1] = 110 + tx;     // Y = time
+  yPositions[3*writeIdx + 1] = 220 + tx;     // Y = time
   yPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
   writeIdx = (writeIdx + 1) % maxSamples;
