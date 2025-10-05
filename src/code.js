@@ -1,5 +1,9 @@
-import * as THREE from "https://esm.sh/three@0.152.2";
-import { OrbitControls } from "https://esm.sh/three@0.152.2/examples/jsm/controls/OrbitControls.js";
+// import * as THREE from "https://esm.sh/three@0.152.2";
+// import { OrbitControls } from "https://esm.sh/three@0.152.2/examples/jsm/controls/OrbitControls.js";
+
+import * as THREE from "three"; // resolved via the import map above
+import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/controls/OrbitControls.js";
+
 
 // import * as THREE from "https://cdn.skypack.dev/three@0.152.2";
 // import { OrbitControls } from "https://cdn.skypack.dev/three@0.152.2/examples/jsm/controls/OrbitControls.js";
