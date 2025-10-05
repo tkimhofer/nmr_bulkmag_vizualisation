@@ -41,7 +41,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
      - recorded signals are visualised by orange/green lines starting after detector
     
    C. Complex signal representation
-    - Recorded signals represented as complex-valued function in time domain: `s(t) = s_R(t) + i* s_I(t)`
+    - Recorded signals represented as complex-valued function in time domain: `s(t) = s_Re(t) + i* s_Im(t)`
     - the real (`s_R(t)`) and imaginary (`s_I(t)`) parts correspond to the two receiver channels.
     - After Fourier transformation,
         - real part of the spectrum yields the absorptive line shape
