@@ -11,7 +11,7 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
 - Relaxation: `Mxy` decays while `Mz` recovers - Why:
   - `T2`: interactions across spins (spin-spin relax.)
   - `T1`: interactins with environment (longitudinal/z axis, spin-lattice relax.)
-- Record `Mxy` signal by sensors placed in right angle in x and y plane [^1]
+- Record `Mxy` signal by sensors placed in right angle in x and y plane[^1]
 - Recorded signal is represented as complex-valued function: `s(t) = s_R(t) + i_s_I(t)` 
     - Real (`R`) part is in-phase signal `s_R(t)` from the x-axis sensor
     - Imaginary (`I`) part is quadrature signal `i_s_I(t)` from the y-axis sensor
