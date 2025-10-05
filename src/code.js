@@ -125,10 +125,10 @@ function setThickArrow(group, dir, totalLength, tipRatio = 0.2) {
 
 const arrow = createThickArrow({
   color: 0xffffff,   // change color here
-  shaftRadius: 4,    // <-- thicker shaft
+  shaftRadius: 2,    // <-- thicker shaft
   shaftLength: 90,
-  headLength: 20,
-  headRadius: 10,
+  headLength: 10,
+  headRadius: 5,
 });
 scene.add(arrow);
 
