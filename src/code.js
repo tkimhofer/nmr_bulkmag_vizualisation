@@ -50,7 +50,7 @@ const phi0   = 0;
 
 // --- magnetisation state ---
 let t = 0;
-let M = new THREE.Vector3(0, 0, M0); // start at +Z
+let M = new THREE.Vector3(0, M0, 0);
 
 // --- magnetisation arrow (use visible color) ---
 const arrow = new THREE.ArrowHelper(
@@ -62,9 +62,8 @@ const arrow = new THREE.ArrowHelper(
   6
 );
 scene.add(arrow);
-console.log('=== after arrow ===');
+// console.log('after arrow');
 
-=== before cone def ===
 function cone(color, pos, rot) {
   const geo = new THREE.ConeGeometry(5, 20, 32);
   const mat = new THREE.MeshBasicMaterial({ color });
