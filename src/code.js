@@ -138,18 +138,41 @@ let accumulator = 0;
   t = 0;
 })();
 
+function drawArrowFromM() {
+  const mag = Math.sqrt(M.x*M.x + M.y*M.y + M.z*M.z);
+  const dir = mag > 1e-12 ? new THREE.Vector3(M.x, M.y, M.z).divideScalar(mag) : new THREE.Vector3(1,0,0);
+  arrow.setDirection(dir);
+  // arrow.setLength(100 * Math.min(1, mag / M0));
+
+  arrow.setDirection(new THREE.Vector3(M.x, M.y, 0).normalize());
+  arrow.setLength(100 * (Math.hypot(M.x, M.y) / M0));
+}
+
+drawArrowFromM(); 
+pushSample(M.x, M.y);
+renderer.render(scene, camera);
+
+
+const tHold = 0.02; # holidng xy plane tilt to make shift explicit
 function stepPhysics(dt) {
   t += dt;
 
   // calc spin-lattice and spin-spin relaxation for t
   const ex = Math.exp(-t / T2);
+  let   Mz;
+    if (t < tHold) {
+      Mz = 0;
+    } else {
+      const τ = t - tHold;
+      Mz = M0 * (1 - Math.exp(-τ / T1));
+    }
+  
   const ez = 1 - Math.exp(-t / T1);
 
   // calc 
   const Mx = M0 * ex * Math.cos(omega0 * t + phi0);
   const My = - M0 * ex * Math.sin(omega0 * t + phi0);
-  const Mz = M0 * ez;
-
+  // const Mz = M0 * ez;
 
   M.set(Mx, My, Mz);
 
