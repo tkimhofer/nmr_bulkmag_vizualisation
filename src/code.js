@@ -47,6 +47,7 @@ const T1     = 1.8;
 const T2     = 0.35;
 const omega0 = 2 * Math.PI * 30; // 30 Hz for visualization
 const phi0   = 0;
+const zPlane = 80; // <- detectors + traces live in horizontal XY at this height
 
 // --- magnetisation state ---
 let t = 0;
@@ -63,6 +64,7 @@ const arrow = new THREE.ArrowHelper(
 );
 scene.add(arrow);
 
+// detectors in XY plane (z = zPlane)
 function cone(color, pos, rot) {
   const geo = new THREE.ConeGeometry(5, 20, 32);
   const mat = new THREE.MeshBasicMaterial({ color });
@@ -71,8 +73,9 @@ function cone(color, pos, rot) {
   if (rot) c.rotation.setFromVector3(rot);
   scene.add(c);
 }
-cone(0xff0000, new THREE.Vector3(100, 80,   0), new THREE.Vector3(0, 0, -Math.PI / 2)); // X
-cone(0x0088ff, new THREE.Vector3(  0, 80, 100), new THREE.Vector3(Math.PI / 2, 0, 0));   // Y
+cone(0xff0000, new THREE.Vector3(100,   0, zPlane), new THREE.Vector3(0, 0, -Math.PI/2)); // +X (red), rotate -90° about Z
+cone(0x0088ff, new THREE.Vector3(  0, 100, zPlane), new THREE.Vector3(0, 0, 0));  
+
 
 // --- rolling traces for Sx and Sy ---
 const maxSamples = 800;
@@ -97,19 +100,19 @@ scene.add(xLine, yLine);
 
 let writeIdx = 0;
 function pushSample(xVal, yVal) {
-  const scale = 120;
-  const step  = 0.5;
+  const scale = 120;   // amplitude scaling
+  const step  = 0.5;   // time step per sample
   const tx = -maxSamples * step * 0.5 + writeIdx * step;
 
-  // Sx trace in XZ plane at Y=80 (red)
-  xPositions[3 * writeIdx + 0] = 110 + tx;
-  xPositions[3 * writeIdx + 1] = 80;
-  xPositions[3 * writeIdx + 2] = scale * xVal;
+  // --- Sx trace (red): time along +X, amplitude along +Y, at constant Z ---
+  xPositions[3*writeIdx + 0] = 110 + tx;    // X = time
+  xPositions[3*writeIdx + 1] = scale * xVal; // Y = amplitude (Sx = Mx)
+  xPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
-  // Sy trace in XY plane at Z=110 (blue)
-  yPositions[3 * writeIdx + 0] = scale * yVal;
-  yPositions[3 * writeIdx + 1] = 80;
-  yPositions[3 * writeIdx + 2] = 110 + tx;
+  // --- Sy trace (blue): time along +Y, amplitude along +X, same Z plane ---
+  yPositions[3*writeIdx + 0] = scale * yVal; // X = amplitude (Sy = My)
+  yPositions[3*writeIdx + 1] = 110 + tx;     // Y = time
+  yPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
   writeIdx = (writeIdx + 1) % maxSamples;
 
@@ -144,6 +147,7 @@ function stepPhysics(dt) {
   const Mx = M0 * ex * Math.cos(omega0 * t + phi0);
   const My = - M0 * ex * Math.sin(omega0 * t + phi0);
   const Mz = M0 * ez;
+
 
   M.set(Mx, My, Mz);
 
