@@ -76,7 +76,7 @@ It is meant as an educational tool for students of spectroscopy or physics learn
 
 
 ## Refs:
-<b id="bloch">1</b>:[Bloch equations] (https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Spectroscopy/Magnetic_Resonance_Spectroscopies/Nuclear_Magnetic_Resonance/NMR_-_Theory/Bloch_Equations)
+<b id="bloch">1</b>: [Bloch equations](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Spectroscopy/Magnetic_Resonance_Spectroscopies/Nuclear_Magnetic_Resonance/NMR_-_Theory/Bloch_Equations)
 
 <b id="quad">2</b>: [Boltzmann distribution](https://magnetic-resonance.org/ch/02-03.html)
 
