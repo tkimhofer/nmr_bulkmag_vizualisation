@@ -9,12 +9,12 @@ https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
   - nuclear spin populations slightly favour lower energetic state
   - spin population difference approx. proportional to magnetic field strength <sup id="boltz">1</sup>
   - this difference in populations determines NMR signal strength
-- bulk magnetisation vector (M) represents sum of individual nuclear magnetic moments (aka macroscopic magnetisation)
+- bulk magnetisation vector (`M`) represents sum of individual nuclear magnetic moments (aka macroscopic magnetisation)
 - bulk magnetisation vector in 3d space:
-  - longitudinal axis z (`Mz`, along `B0`)
-  - transverse axes x and y (`Mxy` in xy-plane)
-- Excitation by applying radiofrequency (RF) pulse, exactly calibrated so it rotates M by 90 degrees about into xy plane
-- M precesses around z-axis at Larmor frequency `omega0`
+  - longitudinal axis `z` (`Mz`, along `B0`)
+  - transverse axes `x` and `y` (`Mxy` in xy-plane)
+- Excitation by applying radiofrequency (RF) pulse, exactly calibrated so it rotates `M` by 90 degrees into xy plane
+- `M` precesses around `z`-axis at Larmor frequency `omega0`
 - Relaxation: `Mxy` decays while `Mz` recovers - Why:
   - `T2`: mutual magnetic interactions between spins - loss of phase coherence (spin-spin relax.)
   - `T1`: interactions with lattice/environment (longitudinal/z axis, spin-lattice relax.)
