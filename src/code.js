@@ -98,6 +98,28 @@ function createThickArrow({
   return group;
 }
 
+function setThickArrow(group, dir, totalLength, tipRatio = 0.2) {
+  const { shaft, head, baseShaftLength, baseHeadLength } = group.userData;
+
+  // Direction: align +Z to dir
+  const d = dir.lengthSq() > 1e-12 ? dir.clone().normalize() : new THREE.Vector3(0, 0, 1);
+  const quat = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), d);
+  group.setRotationFromQuaternion(quat);
+
+  // Split total length into shaft/head
+  const headLen = Math.max(1e-6, totalLength * tipRatio);
+  const shaftLen = Math.max(1e-6, totalLength - headLen);
+
+  // Scale geometries along Z (height) by adjusting positions and scales
+  const shaftScaleZ = shaftLen / baseShaftLength;
+  shaft.scale.set(1, 1, shaftScaleZ);
+  shaft.position.z = shaftLen / 2; // base at 0 → center at half length
+
+  const headScaleZ = headLen / baseHeadLength;
+  head.scale.set(1, 1, headScaleZ);
+  head.position.z = shaftLen + headLen / 2; // sits on top of shaft
+}
+
 const arrow = createThickArrow({
   color: 0xffffff,   // change color here
   shaftRadius: 4,    // <-- thicker shaft
