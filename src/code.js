@@ -75,8 +75,8 @@ function cone(color, pos, rot) {
   if (rot) c.rotation.setFromVector3(rot);
   scene.add(c);
 }
-cone(0xff0000, new THREE.Vector3(100,   0, zPlane), new THREE.Vector3(0, 0, -Math.PI/2)); // +X (red), rotate -90° about Z
-cone(0x0088ff, new THREE.Vector3(  0, 100, zPlane), new THREE.Vector3(0, 0, 0));  
+cone(0xff0000, new THREE.Vector3(100,   0, 0), new THREE.Vector3(0, 0, -Math.PI/2)); // +X (red), rotate -90° about Z
+cone(0x0088ff, new THREE.Vector3(  0, 100, 0), new THREE.Vector3(0, 0, 0));  
 
 
 // --- rolling traces for Sx and Sy ---
