@@ -66,28 +66,30 @@ const timeScale = 0.5;
 function createThickArrow({
   color = 0xffffff,
   shaftRadius = 3,
-  shaftLength = 90,   // default/base shaft length
-  headLength  = 20,   // default/base head length
+  shaftLength = 90,
+  headLength  = 20,
   headRadius  = 8,
   radialSegs  = 24,
 } = {}) {
   const group = new THREE.Group();
 
-  // Shaft geometry centered on its middle; we’ll position so base is at z=0.
+  // Shaft geometry (rotate from Y→Z)
   const shaftGeo = new THREE.CylinderGeometry(shaftRadius, shaftRadius, shaftLength, radialSegs);
+  shaftGeo.rotateX(Math.PI / 2);  // align cylinder with +Z
   const shaftMat = new THREE.MeshPhongMaterial({ color });
   const shaft = new THREE.Mesh(shaftGeo, shaftMat);
   shaft.position.z = shaftLength / 2; // base at origin
   group.add(shaft);
 
-  // Head geometry; base sits on top of shaft.
+  // Head geometry (rotate from Y→Z)
   const headGeo = new THREE.ConeGeometry(headRadius, headLength, radialSegs);
+  headGeo.rotateX(Math.PI / 2);  // align cone with +Z
   const headMat = new THREE.MeshPhongMaterial({ color });
   const head = new THREE.Mesh(headGeo, headMat);
   head.position.z = shaftLength + headLength / 2;
   group.add(head);
 
-  // Store base dimensions for later scaling
+  // Store references for scaling later
   group.userData = {
     shaft,
     head,
@@ -97,6 +99,7 @@ function createThickArrow({
 
   return group;
 }
+
 
 function setThickArrow(group, dir, totalLength, tipRatio = 0.2) {
   const { shaft, head, baseShaftLength, baseHeadLength } = group.userData;
