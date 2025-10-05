@@ -113,7 +113,7 @@ function pushSample(xVal, yVal) {
 
   // --- Sy trace (blue): time along +Y, amplitude along +X, same Z plane ---
   yPositions[3*writeIdx + 0] = scale * yVal; // X = amplitude (Sy = My)
-  yPositions[3*writeIdx + 1] = 330 + tx;     // Y = time
+  yPositions[3*writeIdx + 1] = 340 + tx;     // Y = time
   yPositions[3*writeIdx + 2] = zPlane;       // Z = constant (horizontal plane)
 
   writeIdx = (writeIdx + 1) % maxSamples;
