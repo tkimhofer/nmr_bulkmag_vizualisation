@@ -5,24 +5,41 @@
 https://tkimhofer.github.io/nmr_bulkmag_vizualisation/
 
 ### NMR spectroscopy in essence
-- sample is placed in magnet, NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (corresponding to low & high energy state, resp.)
-  - nuclear spin populations slightly favour lower energetic state
-  - spin population difference approx. proportional to magnetic field strength <sup id="boltz">1</sup>
-  - this difference in populations determines NMR signal strength
-- bulk magnetisation vector (`M`) represents sum of individual nuclear magnetic moments (aka macroscopic magnetisation)
-- bulk magnetisation vector in 3d space:
-  - longitudinal axis `z` (`Mz`, along `B0`)
-  - transverse axes `x` and `y` (`Mxy` in xy-plane)
-- Excitation by applying radiofrequency (RF) pulse, exactly calibrated so it rotates `M` by 90 degrees into xy plane
-- `M` precesses around `z`-axis at Larmor frequency `omega0`
-- Relaxation: `Mxy` decays while `Mz` recovers - Why:
+1. Sample is placed in main magnetic field
+2. Nuclear spin alignment
+  - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (blue axis)
+  - parallel/antiparallel correspond orientations to low/high energy states, respectively.
+  - spin populations slightly favour lower energetic state
+  - population difference proportional to magnetic field strength <sup id="boltz">1</sup>
+  - population difference determines the detectable signal
+3. Bulk magnetisation in 3d space,
+  - bulk magnetisation vector `M` (black vector) represents sum of individual nuclear magnetic moments
+  - longitudinal axis, `z`,  along `B0` (`Mz` component)
+  - transverse axes forming xy-plane: `x` (green) and `y` (orange) 
+4. RF excitation
+  - sample is excited by radiofrequency (RF) pulse
+  - RF is calibrated to rotate `M` by 90 degrees into xy-plane
+  - `M` starts precessing around `z`-axis at Larmor frequency (`omega0` in code)
+5.1 Relaxation effects:
+  - magnitude of `Mxy` declines while `Mz` recovers, due to two relaxation effects:
   - `T2`: mutual magnetic interactions between spins - loss of phase coherence (spin-spin relax.)
   - `T1`: interactions with lattice/environment (longitudinal/z axis, spin-lattice relax.)
-- Record `Mxy` signal by receiver channels 90 degrees out of phase <sup id="quad">2</sup>
-  - here visualised by sensors placed in right angle in x and y plane <sup id="quad">2</sup>
-- Recorded signals are combined and represented as complex-valued function: `s(t) = s_R(t) + i* s_I(t)` 
-    - Real (cosine) component represents dispersive response (x-channel): `s_R(t)`
-    - Imaginary (sine) component represents absorptive response (y-channel): `s_I(t)`
+  - `T2` decay leads to loss of transverse coherence; `T1` governs recovery of longitudinal magnetisation
+5.2 Signal detection:
+  - Record `Mxy` signal by receiver channels 90 degrees out of phase (orthogonal receiver coils)
+  - signal is an induced voltage by precessing magentisation
+  - detectors (receiver channels) are indicated by orange/green cones <sup id="quad">2</sup>
+  - recorded signals are visualised by orange/green lines starting after detector
+5.3. Complex signal representation
+    - Recorded signals represented as complex-valued function in time domain: `s(t) = s_R(t) + i* s_I(t)`
+    - the real (`s_R(t)`) and imaginary (`s_I(t)`) parts correspond to the two receiver channels.
+    - After Fourier transformation,
+        - real part of the spectrum yields the absorptive line shape
+        - imaginary part contains the dispersive component
+6. Recovery
+  - `Mz` magnitude grows until equilibrium is re-established
+7. Repetition 
+  - Once equilibrium is reached, data acquisition cycle can start again
 
 
 ## Refs:
