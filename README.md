@@ -31,7 +31,7 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 
 ### 2. Nuclear spin alignment
  - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (vertical/blue axis in [visualisation](https://tkimhofer.github.io/nmr_visualisation/))
- - Parallel/antiparallel orientations orrespond to low/high energy states, respectively
+ - Parallel/antiparallel orientations correspond to low/high energy states, respectively
  - Slight excess population in the low-energy state → net bulk magnetization (`M`)
  - Population difference proportional to magnetic field strength <sup id="boltz">2</sup> → determines detectable signal strength
 
