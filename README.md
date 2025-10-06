@@ -21,7 +21,7 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 - Interactive orbit, zoom, and reset button (see upper left)
 
 
-See [src/code.js](https://github.com/tkimhofer/nmr_visualisation/blob/master/src/code.js) for implementation details of the signal model and relaxation terms.
+See [src/code.js](https://github.com/tkimhofer/nmr_visualisation/blob/master/src/code.js) for more implementation details of the signal model and relaxation terms.
 
 ---
 
