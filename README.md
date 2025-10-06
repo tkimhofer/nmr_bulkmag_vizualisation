@@ -4,7 +4,7 @@ An interactive JavaScript visualisation of the bulk magnetisation vector and det
 
 🔗 **Live demo:** [tkimhofer.github.io/nmr_visualisation](https://tkimhofer.github.io/nmr_visualisation/)
 
-Note: I've added a button on top-left to apply RF pulse.
+Note: I've added a button top-left to apply RF pulse.
 
 ## 🎯 Overview
 This project implements and visualises the fundamental physical processes in a standard 90° NMR experiment — from nuclear spin alignment to RF excitation, signal precession, relaxation, and data detection — using an animated 3D scene rendered with [Three.js](https://threejs.org/).
