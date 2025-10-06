@@ -30,7 +30,7 @@ At its core, an NMR spectrometer comprises a powerful magnet, a probe with radio
 
 A typical high-field NMR magnet has a field strength of ~14.1 Tesla, whereas this field strength is conventionally quoted by the corresponding 1H (Proton) resonance frequency: 14.1 T ≈ 600 MHz 1H (nominal). 
 
-In comparison, clinical MRI systems have much lower field strengths, usually 1.5–3 T, ultra-high-field MRI: 7 T).
+In comparison, clinical MRI systems have much lower field strengths, usually 1.5–3 T, with up to 7 T being considered as ultra-high-field MRI.
  
 
 ### 1. Sample placement
