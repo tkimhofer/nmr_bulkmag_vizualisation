@@ -24,7 +24,7 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 ---
 
 ## 🧠 NMR Spectroscopy in Essence
-At it's core, an NMR spectroscopy system comprises a superconducting magnet, a probe with radio-frequency coils and transmit/receive electronics for signal excitation and detection.
+At its core, an NMR spectrometer comprises a superconducting magnet, a probe with radio-frequency coils and transmit/receive electronics for signal excitation and detection.
 Example: a typical high-field system is ~14.1 Tesla (≈ 600 MHz for 1H, nominal). (For comparison, clinical MRI is usually 1.5–3 T; ultra-high-field MRI is 7 T)
  
 
