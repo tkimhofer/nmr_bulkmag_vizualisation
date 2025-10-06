@@ -88,7 +88,7 @@ In comparison, clinical MRI systems have much lower field strengths, usually 1.5
 ## Refs:
 <b id="bloch">1</b>: [Bloch equations](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Spectroscopy/Magnetic_Resonance_Spectroscopies/Nuclear_Magnetic_Resonance/NMR_-_Theory/Bloch_Equations)
 
-<b id="gyro">2</b>: [Gyromagnetic ratio](https://www.kherb.io/docs/nmr_table.html)
+<b id="gyro">2</b>: γ = [Gyromagnetic ratio](https://www.kherb.io/docs/nmr_table.html)
 
 <b id="quad">3</b>: [Boltzmann distribution](https://magnetic-resonance.org/ch/02-03.html)
 
