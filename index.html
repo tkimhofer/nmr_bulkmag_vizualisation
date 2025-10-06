@@ -11,7 +11,7 @@
       } }
     </script>
     <link href="./styles/main.css" rel="stylesheet" type="text/css">
-    <script type="module" src="./src/code.js?v=1"></script>
+    <script type="module" src="./src/code.js?v=2"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-555BDQJLHH"></script>
     <script>
@@ -36,6 +36,47 @@
             });
         });
     </script>
+
+    <script>
+        (function(){
+          const ENDPOINT = 'https://analytics.tkimhofer.dev/collect';
+          const TOKEN = 'MMXVtk';
+        
+          function anonId(){
+            const k='anon_id'; let v=localStorage.getItem(k);
+            if(!v){ v=crypto.randomUUID(); localStorage.setItem(k,v); }
+            return v;
+          }
+        
+          async function track(event, props={}){
+            const payload = {
+              v: 1, event, ts: Date.now(),
+              page: location.href, ref: document.referrer || null,
+              anon_id: anonId(), ua: navigator.userAgent, ...props
+            };
+            try {
+              await fetch(ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type':'application/json', 'x-analytics-token': TOKEN },
+                keepalive: true,
+                body: JSON.stringify(payload)
+              });
+            } catch {}
+          }
+        
+          track('page_view');
+          document.addEventListener('DOMContentLoaded', ()=>{
+            const btn = document.getElementById('restart-btn');
+            if (btn) btn.addEventListener('click', ()=>track('rf_pulse_click', {control:'restart-btn'}));
+          });
+        })();
+    </script>
+
+
+
+
+
+    
 </body>
   
 </html>
