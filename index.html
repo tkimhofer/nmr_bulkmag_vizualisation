@@ -12,6 +12,15 @@
     </script>
     <link href="./styles/main.css" rel="stylesheet" type="text/css">
     <script type="module" src="./src/code.js?v=1"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-555BDQJLHH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-555BDQJLHH');
+    </script>
+    
 </head>
 
 <body>
@@ -19,6 +28,14 @@
       Apply RF Pulse 
     </button>
     <div id="scene-container"></div>
+
+     <script>
+        document.getElementById('restart-btn').addEventListener('click', () => {
+         gtag('event', 'restart_click', {
+                button_id: 'restart-btn',
+            });
+        });
+    </script>
 </body>
   
 </html>
