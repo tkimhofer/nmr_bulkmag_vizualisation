@@ -9,10 +9,10 @@ This project illustrates the fundamental physical processes in a standard 90° N
 
 It is meant as an educational tool for students of spectroscopy or physics learning about spin dynamics and NMR signal formation.
 
-The magnetisation dynamics are computed from the analytical solutions to the Bloch equations  <sup id="bloch">1</sup> for free precession and relaxation after a 90° pulse in the laboratory frame.
-
 
 ## 🧩 Implementation
+
+The magnetisation dynamics are computed from the analytical solutions to the Bloch equations  <sup id="bloch">1</sup> for free precession and relaxation after a 90° pulse in the laboratory frame.
 
 **Key features**
 - Animated bulk magnetization vector with 3D axes.
