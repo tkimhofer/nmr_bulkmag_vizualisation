@@ -26,14 +26,14 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 ## 🧠 NMR Spectroscopy in Essence
 
 ### 1. Sample placement
-- temperature & field stabilisation
-- locking, shimming, tuning & matching, RF pulse calibration, etc.
+- Temperature & field stabilisation
+- Locking, shimming, tuning & matching, RF pulse calibration, etc.
 
 ### 2. Nuclear spin alignment
  - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (vertical/blue axis in [visualisation](https://tkimhofer.github.io/nmr_visualisation/))
- - parallel/antiparallel orientations orrespond to low/high energy states, respectively
- - slight excess population in the low-energy state → net bulk magnetization (`M`)
- - population difference proportional to magnetic field strength <sup id="boltz">2</sup> → determines detectable signal strength
+ - Parallel/antiparallel orientations orrespond to low/high energy states, respectively
+ - Slight excess population in the low-energy state → net bulk magnetization (`M`)
+ - Population difference proportional to magnetic field strength <sup id="boltz">2</sup> → determines detectable signal strength
 
 ### 3. Bulk magnetization in 3D space
 - Bulk magnetization vector `M` (white) is the sum of individual nuclear magnetic moments  
@@ -41,7 +41,7 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 - Transverse axes: `x` (red) and `y` (green), forming the `Mxy` plane
 
 ### 4. RF excitation
-- exposed to radiofrequency (RF) pulse
+- Exposed to radiofrequency (RF) pulse -> `B1`
 - RF pulse calibrated to rotate `M` by 90° into xy-plane
 - `M` starts precessing around z-axis at the Larmor frequency (`omega0` in code)
 
