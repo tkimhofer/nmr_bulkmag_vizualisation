@@ -33,7 +33,8 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
  - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (vertical/blue axis in [visualisation](https://tkimhofer.github.io/nmr_visualisation/))
  - Parallel/antiparallel orientations correspond to low/high energy states, respectively
  - Slight excess population in the low-energy state → net bulk magnetization (`M`)
- - Population difference proportional to magnetic field strength <sup id="boltz">2</sup> → determines detectable signal strength
+ - Population difference proportional to magnetic field strength <sup id="boltz">2</sup>
+ - (higher magnetic field strength increases chemical shift dispersion, ie., less peak overlap)
 
 ### 3. Bulk magnetization in 3D space
 - Bulk magnetization vector `M` (white) is the sum of individual nuclear magnetic moments  
