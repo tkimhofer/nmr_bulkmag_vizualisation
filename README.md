@@ -28,7 +28,7 @@ See [src/code.js](https://github.com/tkimhofer/nmr_visualisation/blob/master/src
 ## 🧠 NMR Spectroscopy in Essence
 At its core, an NMR spectrometer comprises a powerful magnet, a probe with radio-frequency coils and transmit/receive electronics for signal excitation and detection.
 
-Example: a typical high-field system is ~14.1 Tesla (≈ 600 MHz for 1H, nominal). (For comparison, clinical MRI is usually 1.5–3 T; ultra-high-field MRI is 7 T)
+Example: A typical high-field NMR magnet has a field strength of ~14.1 Tesla, whereas this field strength is conventionally quoted by the corresponding 1H (Proton) resonance frequency: 14.1 T ≈ 600 MHz 1H (nominal). In comparison, clinical MRI systems have much lower field strengths, usually 1.5–3 T, ultra-high-field MRI: 7 T).
  
 
 ### 1. Sample placement
