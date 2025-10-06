@@ -24,6 +24,9 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 ---
 
 ## 🧠 NMR Spectroscopy in Essence
+At it's core, an NMR spectroscopy system comprises a superconducting magnet, a probe with radio-frequency coils and transmit/receive electronics for signal excitation and detection.
+Example: a typical high-field system is ~14.1 Tesla (≈ 600 MHz for 1H, nominal). (For comparison, clinical MRI is usually 1.5–3 T; ultra-high-field MRI is 7 T)
+ 
 
 ### 1. Sample placement
 - Temperature & field stabilisation
@@ -31,9 +34,9 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 
 ### 2. Nuclear spin alignment
  - NMR-sensitive nuclei align parallel or antiparallel to magnetic field `B0` (vertical/blue axis in [visualisation](https://tkimhofer.github.io/nmr_visualisation/))
- - Parallel/antiparallel orientations correspond to low/high energy states, respectively
+ - Parallel/antiparallel orientations correspond to low/high energy states (for 1H, where γ<sup id="gyro">2</sup> > 0  → antiparallel = low energy )
  - Slight excess population in the low-energy state → net bulk magnetization (`M`)
- - Population difference proportional to magnetic field strength <sup id="boltz">2</sup>
+ - Population difference proportional to magnetic field strength <sup id="boltz">3</sup>
  - (higher magnetic field strength increases chemical shift dispersion, ie., less peak overlap)
 
 ### 3. Bulk magnetization in 3D space
@@ -56,7 +59,7 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 
 **B. Signal detection**
 - The precessing `Mxy` induces voltage in two orthogonal receiver coils (90° phase difference)
-- Detectors / recever channels shown as orange and green cones <sup id="quad">3</sup>
+- Detectors / recever channels shown as orange and green cones <sup id="quad">4</sup>
 - Resulting time-domain signals are drawn as orange and green traces
 
 **C. Complex signal representation**
@@ -80,6 +83,8 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 ## Refs:
 <b id="bloch">1</b>: [Bloch equations](https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Spectroscopy/Magnetic_Resonance_Spectroscopies/Nuclear_Magnetic_Resonance/NMR_-_Theory/Bloch_Equations)
 
-<b id="quad">2</b>: [Boltzmann distribution](https://magnetic-resonance.org/ch/02-03.html)
+<b id="gyro">2</b>: [Gyromagnetic ratio](https://www.kherb.io/docs/nmr_table.html)
 
-<b id="quad">3</b>: [Quadrature detection](https://en.wikipedia.org/wiki/In-phase_and_quadrature_components)
+<b id="quad">3</b>: [Boltzmann distribution](https://magnetic-resonance.org/ch/02-03.html)
+
+<b id="quad">4</b>: [Quadrature detection](https://en.wikipedia.org/wiki/In-phase_and_quadrature_components)
