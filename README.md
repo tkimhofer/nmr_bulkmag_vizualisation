@@ -13,6 +13,7 @@ It is meant as an educational tool for students of spectroscopy or physics learn
 ## 🧩 Implementation
 
 The magnetisation dynamics are computed from the analytical solutions to the Bloch equations  <sup id="bloch">1</sup> for free precession and relaxation after a 90° pulse in the laboratory frame.
+File [this js code file](https://github.com/tkimhofer/nmr_visualisation/blob/master/src/code.js) for implementation of physics equations.
 
 **Key features**
 - Animated bulk magnetization vector with 3D axes.
@@ -20,7 +21,9 @@ The magnetisation dynamics are computed from the analytical solutions to the Blo
 - Orthogonal detectors and complex signal traces
 - Interactive orbit, zoom, and reset button (see upper left)
 
-File [this js code file](https://github.com/tkimhofer/nmr_visualisation/blob/master/src/code.js) for implementation of physics equations.
+
+See [src/code.js](https://github.com/tkimhofer/nmr_visualisation/blob/master/src/code.js) for implementation details of the signal model and relaxation terms.
+
 ---
 
 ## 🧠 NMR Spectroscopy in Essence
